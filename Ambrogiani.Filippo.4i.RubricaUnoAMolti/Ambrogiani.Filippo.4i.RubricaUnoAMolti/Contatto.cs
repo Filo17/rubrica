@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ambrogiani.Filippo._4i.Rubrica
 {
-    public enum TipoContatto { nessuno, EMail, Telefono, Web, Instagram }
+    public enum TipoContatto { nessuno, Email, Telefono, Web, Instagram, Facebook, Cellulare}
     public class Contatto
     {
         public int idPersona { get; set; }

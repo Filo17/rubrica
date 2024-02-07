@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:Ambrogiani.Filippo._4i.RubricaUnoAMolti"
         Loaded="Window_Loaded"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
-       
-    <Grid>
+        Title="MainWindow" Height="450" Width="800">
+
+    <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
@@ -16,5 +16,9 @@
 
         <TextBlock Grid.Column="0" HorizontalAlignment="Center">Persone</TextBlock>
         <TextBlock Grid.Column="1" HorizontalAlignment="Center">Contatti</TextBlock>
+        <TextBlock Name="statusBar" Text="..." VerticalAlignment="Bottom" FontSize="35" HorizontalAlignment="Left" Grid.Column="0"/>
+        <DataGrid Name="dgPersone"></DataGrid>
+        <DataGrid Name="dgContatti" Grid.Column="1" SelectionChanged="dgDati_SelectionChanged"></DataGrid>
+        
     </Grid>
 </Window>

@@ -21,8 +21,10 @@ namespace Ambrogiani.Filippo._4i.RubricaUnoAMolti
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
     public partial class MainWindow : Window
     {
+        List<Contatto> Contatti;
         static int Max = 100;
         public MainWindow()
         {
@@ -30,21 +32,25 @@ namespace Ambrogiani.Filippo._4i.RubricaUnoAMolti
         }
         Persona[] persone = new Persona[Max];
         private void dgDati_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        { /* //penso non funzioni perchè è stato scritto a mano
-            Persona p = e.AddedItems[0] as Persona;
-            //statusBar.Text = $"{p.Cognome}";
+        {
+            /*
+                Persona p = e.AddedItems[0] as Persona; //salva le informazioni della tabella selezionata
+            
+                statusBar.Text = $"{p.Cognome}";
 
-            List<Contatto> contattiFiltrati = new List<Contatto>();
-            foreach (var item in Contatti)
-            {
-                if (item.idPersona == p.idPersona)
+                List<Contatto> contattiFiltrati = new List<Contatto>();
+                foreach (var item in Contatti)
                 {
-                    contattiFiltrati.Add(item);
-                }
-                dgContatti.ItemSource = contattiFiltrati;
-            }
+                    if (item.idPersona == p.idPersona)
+                    {
+                        contattiFiltrati.Add(item);
+                    }
 
-        */
+                    dgContatti.ItemsSource = contattiFiltrati;
+                }
+            */
+
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -55,15 +61,37 @@ namespace Ambrogiani.Filippo._4i.RubricaUnoAMolti
                 StreamReader fin = new StreamReader("Persone.csv");
                 fin.ReadLine();
 
-                List<Persona> persona = new List<Persona>();
+                List<Persona> Persone = new List<Persona>();
                 while (!fin.EndOfStream)
                 {
-                    //semplifica in persone.Add(new Contatto(fin.ReadLine()));
+                    //semplifica in persone.Add(new Persona(fin.ReadLine()));
                     string riga = fin.ReadLine();
                     Persona p = new Persona(riga);
-                    persona.Add(p);
+                    Persone.Add(p);
                 }
-                //dgPersone.ItemsSource = Persone
+
+                dgPersone.ItemsSource = Persone;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            try
+            {
+                //leggi contatti
+                StreamReader fin = new StreamReader("Contatti.csv");
+                fin.ReadLine();
+
+                Contatti = new List<Contatto>();
+                while (!fin.EndOfStream)
+                {
+                    //semplifica in Contatti.Add(new Contatto(fin.ReadLine()));
+                    string riga = fin.ReadLine();
+                    Contatto c = new Contatto(riga);
+                    Contatti.Add(c);
+                }
+
+                dgContatti.ItemsSource = Contatti;
             }
             catch (Exception ex)
             {

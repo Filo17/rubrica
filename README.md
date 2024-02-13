@@ -1,7 +1,7 @@
 # Rubrica
 Esercizio con esempio di doppia grid per visualizzare una relazione uno a molti, allo scopo di simulare una rubrica telefonica
 ## Descrizione del progretto
-Realizzazione di un programma in WBF che simula una rubrica. <br>
+Realizzazione di un programma in WPF che simula una rubrica. <br>
 **Ad esempio:**
 Ci sarà una lista di persone su una parte dello schermo, se una persona viene selezionata, appariranno tutti i suoi dettagli in un'altra parte dello schermo
 
